@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: "Montserrat",sans-serif;
+    
+}
+
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.nav-item {
+    margin-right: 45px;
+}
+
+
+.nav-item.active {
+    color: #ffba00;
+}
+
+.nav-link:hover {
+    color: #ffba00;
+}
