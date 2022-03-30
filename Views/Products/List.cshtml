@@ -1,11 +1,362 @@
-﻿<h1>Все товары</h1>
-<h3>@Model.currCategory</h3>  
+﻿@using Shop.ViewModels
+@model ProductsListViewModel
+
+
 @{
     foreach (var product in Model.allProducts)
     {
         <div>
-            <h2>Название товара: @product.name</h2>
-            <p>Цена: @product.price.ToString("c")</p>
-        </div>            
+            <h1>@product.name</h1>
+            <h6>@product.price</h6>
+        </div>
     }
 }
+
+
+
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="row mt-5">
+            <div class="col-xs">
+                <div id="carouselExampleInterval" class="carousel slide data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="~/img/test_carousel2.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-item-header-dark">LEDGER NANO X</h5>
+                                @*<p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>*@
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <img src="~/img/test_carousel1.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-item-header-dark">LEDGER NANO S</h5>
+                                @*<p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Назад</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Вперед</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class = "col-xs">
+                <header class="products-specials-header">
+                    <div class="h2 h-inline">
+                        <a href="#">
+                            Товары Ledger                
+                        </a>
+                    </div>
+            
+                </header>
+            </div>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md  row-cols-lg-3 g-3 mb-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Ledger nano x</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Ledger nano s</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Ledger nano simple</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+<div class="another-background-grey">
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="another-background-grey">
+                <div class="row">
+                    <div class = "col-xs">
+                        <header class="products-specials-header">
+                            <div class="h2 h-inline">
+                                <a href="#">
+                                    Товары Trezor                
+                                </a>
+                            </div>
+            
+                        </header>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-text text-center">Trezor nano x</h3>
+                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-text text-center">Trezor nano s</h3>
+                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-text text-center">Trezor nano simple</h3>
+                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class = "col-xs">
+                <header class="products-specials-header">
+                    <div class="h2 h-inline">
+                        <a href="#">
+                            Книги                
+                        </a>
+                    </div>
+            
+                </header>
+            </div>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3 mb-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Книга nano x</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Книга nano s</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+                <div class="card-body">
+                    <h3 class="card-text text-center">Книга nano simple</h3>
+                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
+                    <div class="d-flex justify-content-center align-items-center mt-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
+                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="another-background-grey">
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="row">
+                <div class = "col-xs">
+                    <header class="products-specials-header">
+                        <div class="row">
+                            <div class="col-xs justify-content-center">
+                                <img src="~/img/delivery_ico.png">
+                            </div>
+                        </div>
+                        <div class="h1 h-inline">
+                            <a href="#">
+                                О доставке              
+                            </a>
+                        </div>
+            
+                    </header>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3">
+                <div class="col mainpage-delivery_content">
+                    <p>Мы осуществляем доставку по городу через 1-2 дня в пределах кольцевой дороги города. Она стоит 300 рублей. Доставка за пределы кольцевой дороги составляет 700 рублей. Также мы можем реализовать почтовую доставку в другие регионы за 300 рублей.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+        <main role="main" class="pb-3">
+                <div class="row">
+                    <div class = "col-xs">
+                        
+                        <header class="products-specials-header">
+                            <div class="row">
+                                <div class="col-xs justify-content-center">
+                                    <img src="~/img/phone_ico.png">
+                                </div>
+                            </div>
+                            <div class="h1 h-inline">
+                                <a href="#">
+                                    Мы всегда на связи             
+                                </a>
+                            </div>
+            
+                        </header>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3">
+                    <div class="col mainpage-delivery_content">
+                        <p>Спокойно пишите и звоните нам, мы любим общаться с нашими клиентами<br/>+7 925 176 65 90<br/>cryptograph@store.com</p>
+                    </div>
+                </div>
+        </main>
+    </div>

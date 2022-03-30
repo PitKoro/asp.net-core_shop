@@ -1,12 +1,17 @@
 using Shop.interfaces;
-using Shop.mocks;
+using Shop.Data;
+using Microsoft.EntityFrameworkCore;
+using Shop.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IAllProducts, MockProducts>();
-builder.Services.AddTransient<IProductsCategory, MockCategory>();
+builder.Services.AddTransient<IAllProducts, ProductRepository>();
+builder.Services.AddTransient<IProductsCategory, CategoryRepository>();
+builder.Services.AddDbContext<AppDBContent>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
