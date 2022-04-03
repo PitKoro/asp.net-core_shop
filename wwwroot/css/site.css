@@ -4,6 +4,10 @@ body {
     color: rgba(0, 0, 0, .9);
 }
 
+header {
+    background-color: #fff;
+}
+
 .another-background-grey {
     background-color: #f1f1f1;
     padding-bottom: 50px;
@@ -19,7 +23,7 @@ body {
 }
 
 .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.14);
 }
 
 
@@ -105,3 +109,7 @@ a.navbar-brand {
     text-align: center;
 }
 
+.carousel-inner {
+    max-height: 400px;
+    object-fit: cover;
+}
