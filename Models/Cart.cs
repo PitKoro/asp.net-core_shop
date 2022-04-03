@@ -11,27 +11,32 @@
         {
 
             CartItem item = cartCollection
-                .Where(p => p.Product.id == product.id)
+                .Where(p => p.id == product.id)
                 .FirstOrDefault();
             
             if (item == null)
             {
-                cartCollection.Add(new CartItem { Product = product, Quantity = quantity });
+                cartCollection.Add(new CartItem {
+                    id = product.id,
+                    name = product.name,
+                    price = product.price,
+                    quantity = quantity
+                });
             }
             else
             {
-                item.Quantity += quantity;
+                item.quantity += quantity;
             }
         }
 
         public void RemoveItem(Product product)
         {
-            cartCollection.RemoveAll(i => i.Product.id == product.id);
+            cartCollection.RemoveAll(i => i.id == product.id);
         }
 
         public decimal ComputeTotalValue()
         {
-            return cartCollection.Sum(i => i.Product.price * i.Quantity);
+            return cartCollection.Sum(i => i.price * i.quantity);
         }
         public void Clear()
         {
@@ -40,7 +45,9 @@
     }
     public class CartItem
     {
-        public Product Product { get; set; }
-        public int Quantity { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public decimal price { get; set; }
+        public int quantity { get; set; }
     }
 }

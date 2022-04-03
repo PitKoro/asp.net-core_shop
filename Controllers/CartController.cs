@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Shop.interfaces;
 using Shop.Models;
 using Shop.ViewModels;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
 
 namespace Shop.Controllers
 {
@@ -31,22 +31,16 @@ namespace Shop.Controllers
 
         public Cart GetCart()
         {
-            JsonSerializerOptions options = new()
-            {
-                WriteIndented = true,
-                ReferenceHandler = ReferenceHandler.Preserve
-            };
-
             Cart cart = new Cart();
-            string sessionCart = _httpContextAccessor.HttpContext.Session.GetString("Cart");
+            string sessionCartJson = _httpContextAccessor.HttpContext.Session.GetString("Cart");
 
-            if (sessionCart == null)
+            if (sessionCartJson == null)
             {
-                _httpContextAccessor.HttpContext.Session.SetString("Cart", JsonSerializer.Serialize(cart, options));
+                _httpContextAccessor.HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(cart));
             }
             else
             {
-                cart = JsonSerializer.Deserialize<Cart>(sessionCart)!;
+                cart = JsonConvert.DeserializeObject<Cart>(sessionCartJson)!;
             }
 
 
@@ -58,11 +52,7 @@ namespace Shop.Controllers
         public JsonResult AddToCart(int id)
         {
 
-            JsonSerializerOptions options = new()
-            {
-                WriteIndented = true,
-                ReferenceHandler = ReferenceHandler.Preserve
-            };
+            
 
             Cart cart = GetCart();
             /*Cart cart = new Cart();*/
@@ -72,9 +62,7 @@ namespace Shop.Controllers
             if (product != null)
             {
                 cart.AddItem(product, 1);
-
-                
-                _httpContextAccessor.HttpContext.Session.SetString("Cart", JsonSerializer.Serialize<Cart>(cart, options));
+                _httpContextAccessor.HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(cart));
             }
 
             return Json(_httpContextAccessor.HttpContext.Session.GetString("Cart"));
