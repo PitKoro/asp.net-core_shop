@@ -2,15 +2,7 @@
 @model ProductsListViewModel
 
 
-@{
-    foreach (var product in Model.allProducts)
-    {
-        <div>
-            <h1>@product.name</h1>
-            <h6>@product.price</h6>
-        </div>
-    }
-}
+
 
 
 
@@ -30,14 +22,14 @@
                             <img src="~/img/test_carousel2.jpg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5 class="carousel-item-header-dark">LEDGER NANO X</h5>
-                                @*<p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>*@
+                                <p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="10000">
                             <img src="~/img/test_carousel1.jpg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5 class="carousel-item-header-dark">LEDGER NANO S</h5>
-                                @*<p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>*@
+                                <p class="carousel-item-paragraph-dark">Верните себе власть над своими деньгами</p>
                             </div>
                         </div>
                     </div>
@@ -79,53 +71,13 @@
         </div>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md  row-cols-lg-3 g-3 mb-3">
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Ledger nano x</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Ledger nano s</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Ledger nano simple</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
+        @{
+            foreach (Product product in Model.ledgerFavoriteProducts)
+            {
+                @Html.Partial("ProductCards", product)
+            }
+        }
         </div>
     </main>
 </div>
@@ -150,55 +102,13 @@
                 </div>
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-text text-center">Trezor nano x</h3>
-                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                            <div class="d-flex justify-content-center align-items-center mt-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-text text-center">Trezor nano s</h3>
-                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                            <div class="d-flex justify-content-center align-items-center mt-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-text text-center">Trezor nano simple</h3>
-                            <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                            <div class="d-flex justify-content-center align-items-center mt-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                                <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                @{
+                    foreach (Product product in Model.trezorFavoriteProducts)
+                    {
+                        @Html.Partial("ProductCards", product)
+                    }
+                }
                 </div>
-
             </div>
         </main>
     </div>
@@ -227,57 +137,15 @@
             
                 </header>
             </div>
-
         </div>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md row-cols-lg-3 g-3 mb-3">
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Книга nano x</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Книга nano s</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="~/img/test_carousel1.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
-                <div class="card-body">
-                    <h3 class="card-text text-center">Книга nano simple</h3>
-                    <small class="card-text text-center">Аппаратный кошелёк с Bluetooth-соединением и увеличенной памятью</small>
-                    <div class="d-flex justify-content-center align-items-center mt-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary">Подробнее</button>
-                        <button type="button" class="btn btn-outline-secondary">В корзину</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
+        @{
+            foreach (Product product in Model.favoriteBooks)
+            {
+                @Html.Partial("ProductCards", product)
+            }
+        }
         </div>
     </main>
 </div>

@@ -4,7 +4,7 @@ using Shop.Models;
 
 namespace Shop.Data.Repository
 {
-    public class ProductRepository: IAllProducts
+    public class ProductRepository: IProductRepository
     {
         private readonly AppDBContent appDBContent;
 
@@ -14,6 +14,12 @@ namespace Shop.Data.Repository
         }
 
         public IEnumerable<Product> Products => appDBContent.Product.Include(c => c.Category);
+
+        public IEnumerable<Product> ThreeFavoriteProductsByManufacturer(string manufacturer) => 
+            appDBContent.Product
+            .Where(p => p.isFavourite)
+            .Where(p => p.manufacturer == manufacturer)
+            .Take(3);
 
         public IEnumerable<Product> getFavProducts => appDBContent.Product.Where(p => p.isFavourite).Include(c => c.Category);
 

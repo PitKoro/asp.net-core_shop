@@ -1,0 +1,9 @@
+﻿@model CartIndexViewModel
+
+@foreach (CartItem item in Model.Cart.Items)
+{
+    <h1>item.Product.name</h1>
+    <h6>item.Quantity</h6>
+}
+
+<h1>HttpContext.Session.GetString("Cart")</h1>

@@ -63,6 +63,9 @@ namespace Shop.Migrations
                     b.Property<string>("longDesc")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("manufacturer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 

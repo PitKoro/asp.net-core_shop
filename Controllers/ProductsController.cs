@@ -16,10 +16,10 @@ namespace Shop.Controllers
     {
         private readonly AppDBContent _context;
 
-        private readonly IAllProducts _allProducts;
-        private readonly IProductsCategory _allCategories;
+        private readonly IProductRepository _allProducts;
+        private readonly ICategoryRepository _allCategories;
 
-        public ProductsController(AppDBContent context, IAllProducts iAllProducts, IProductsCategory iProductsCategory)
+        public ProductsController(AppDBContent context, IProductRepository iAllProducts, ICategoryRepository iProductsCategory)
         {
             _allProducts = iAllProducts;
             _allCategories = iProductsCategory;
@@ -28,9 +28,12 @@ namespace Shop.Controllers
         
         public ViewResult List()
         {
-            ViewData["Title"] = "Каталог";
+            ViewData["Title"] = "Главная";
             ProductsListViewModel obj = new ProductsListViewModel();
             obj.allProducts = _allProducts.Products;
+            obj.ledgerFavoriteProducts = _allProducts.ThreeFavoriteProductsByManufacturer("Ledger");
+            obj.trezorFavoriteProducts = _allProducts.ThreeFavoriteProductsByManufacturer("Trezor");
+            obj.favoriteBooks = _allProducts.ThreeFavoriteProductsByManufacturer("Book");
             obj.currCategory = "Aппаратные кошельки";
             return View(obj);
         }

@@ -51,7 +51,6 @@ C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\obj\Debug\net6.0\Shop.pdb
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\obj\Debug\net6.0\Shop.genruntimeconfig.cache
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\obj\Debug\net6.0\ref\Shop.dll
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\bin\Debug\net6.0\Humanizer.dll
-C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\bin\Debug\net6.0\Json.dll
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\pitko\Desktop\c_sharp\asp.net-core_shop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll

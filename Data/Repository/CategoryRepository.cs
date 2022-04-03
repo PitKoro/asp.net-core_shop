@@ -4,7 +4,7 @@ using Shop.Models;
 
 namespace Shop.Data.Repository
 {
-    public class CategoryRepository : IProductsCategory
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly AppDBContent appDBContent;
 
