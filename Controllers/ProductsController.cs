@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Shop.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Shop.interfaces;
 using Shop.Models;
 using Shop.ViewModels;
@@ -14,28 +8,45 @@ namespace Shop.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly AppDBContent _context;
-
-        private readonly IProductRepository _allProducts;
-        private readonly ICategoryRepository _allCategories;
-
-        public ProductsController(AppDBContent context, IProductRepository iAllProducts, ICategoryRepository iProductsCategory)
+        private readonly IProductRepository _productRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ProductsController( IProductRepository iAllProducts, IHttpContextAccessor httpContextAccessor)
         {
-            _allProducts = iAllProducts;
-            _allCategories = iProductsCategory;
-            _context = context;
+            _productRepository = iAllProducts;
+            _httpContextAccessor = httpContextAccessor;
         }
         
         public ViewResult List()
         {
+
+
             ViewData["Title"] = "Главная";
             ProductsListViewModel obj = new ProductsListViewModel();
-            obj.allProducts = _allProducts.Products;
-            obj.ledgerFavoriteProducts = _allProducts.ThreeFavoriteProductsByManufacturer("Ledger");
-            obj.trezorFavoriteProducts = _allProducts.ThreeFavoriteProductsByManufacturer("Trezor");
-            obj.favoriteBooks = _allProducts.ThreeFavoriteProductsByManufacturer("Book");
+            obj.allProducts = _productRepository.Products;
+            obj.ledgerFavoriteProducts = _productRepository.ThreeFavoriteProductsByManufacturer("Ledger");
+            obj.trezorFavoriteProducts = _productRepository.ThreeFavoriteProductsByManufacturer("Trezor");
+            obj.favoriteBooks = _productRepository.ThreeFavoriteProductsByManufacturer("Book");
+            obj.NumberOfItemsInCart = NumberOfItemsInCart();
             obj.currCategory = "Aппаратные кошельки";
             return View(obj);
         }
+
+        private int NumberOfItemsInCart()
+        {
+            Cart cart = new Cart();
+            string sessionCartJson = _httpContextAccessor.HttpContext.Session.GetString("Cart");
+
+            if (sessionCartJson == null)
+            {
+                _httpContextAccessor.HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(cart));
+            }
+            else
+            {
+                cart = JsonConvert.DeserializeObject<Cart>(sessionCartJson)!;
+            }
+
+            return cart.totalQuantity;
+        }
+
     }
 }

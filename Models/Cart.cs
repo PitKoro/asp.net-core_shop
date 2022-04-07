@@ -8,6 +8,7 @@
         public IEnumerable<CartItem> Items { get { return cartCollection; } }
         public int totalQuantity { get; set; }
 
+
         public void AddItem(Product product, int quantity)
         {
             CartItem item = cartCollection
@@ -20,7 +21,8 @@
                     id = product.id,
                     name = product.name,
                     price = product.price,
-                    quantity = quantity
+                    quantity = quantity,
+                    img = product.img
                 });
             }
             else
@@ -56,5 +58,11 @@
         public string name { get; set; }
         public decimal price { get; set; }
         public int quantity { get; set; }
+        public string img { get;set; }
+
+        public decimal ComputeTotalPrice()
+        {
+            return price * quantity;
+        }
     }
 }

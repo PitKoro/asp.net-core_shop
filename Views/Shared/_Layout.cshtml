@@ -33,12 +33,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">О МАГАЗИНЕ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">ДОСТАВКА И ОПЛАТА</a>
+                            <a class="nav-link text-dark" href="/">ДОСТАВКА И ОПЛАТА</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">КОНТАКТЫ</a>
+                            <a class="nav-link text-dark" href="#contacts">КОНТАКТЫ</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link text-dark js-cart-text-with-quantity" href="#">КОРЗИНА (0)</a>
+                        <li class="nav-item"><a class="nav-link text-dark js-cart-text-with-quantity" asp-controller="Cart" asp-action="Index">КОРЗИНА (@Model.NumberOfItemsInCart)</a>
                            
                         </li>
                         

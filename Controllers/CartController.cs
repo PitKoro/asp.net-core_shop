@@ -20,11 +20,14 @@ namespace Shop.Controllers
 
     public ViewResult Index(/*string returnUrl*/)
         {
+            Cart cart = GetCart();
+            int numberOfItemsInCart = cart.totalQuantity;
             return View(
                 new CartIndexViewModel
                 {
-                    Cart = GetCart(),
-                   /* returnUrl = returnUrl*/
+                    Cart = cart,
+                    NumberOfItemsInCart = cart.totalQuantity
+                    /* returnUrl = returnUrl*/
                 }
             );
         }

@@ -6,5 +6,6 @@ namespace Shop.ViewModels
     {
         public Cart Cart { get; set; }
         /*public string returnUrl { get; set; }*/
+        public int NumberOfItemsInCart { get; set; }
     }
 }

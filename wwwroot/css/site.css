@@ -113,3 +113,22 @@ a.navbar-brand {
     max-height: 400px;
     object-fit: cover;
 }
+
+.product-img-in-cart {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #ff5301;
+    border-color: #ff5301;
+}
+
+.border-bottom {
+    border-bottom-width: 1px; /* Толщина линии внизу */
+    border-bottom-style: solid; /* Стиль линии внизу */
+    border-bottom-color: #dee2e6; /* Цвет линии внизу */
+}

@@ -9,5 +9,6 @@ namespace Shop.ViewModels
         public IEnumerable<Product> trezorFavoriteProducts { get; set; }
         public IEnumerable<Product> favoriteBooks { get; set; }
         public string currCategory { get; set; }
+        public int NumberOfItemsInCart { get; set; }
     }
 }

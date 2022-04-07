@@ -1,9 +1,51 @@
 ﻿@model CartIndexViewModel
 
-@foreach (CartItem item in Model.Cart.Items)
-{
-    <h1>item.Product.name</h1>
-    <h6>item.Quantity</h6>
-}
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class = "col-xs">
+                <div class="products-specials-header">
+                    <div class="h2 h-inline">
+                        <a asp-controller="Cart" aspaction="Index">
+                            Корзина                
+                        </a>
+                    </div>
+            
+                </div>
+            </div>
 
-<h1>HttpContext.Session.GetString("Cart")</h1>
+        </div>
+
+        <div class="row border border-light rounded shadow-sm mb-3">
+            <div class="col">
+            @foreach (CartItem item in Model.Cart.Items)
+            {
+                <div class="row align-items-center border-bottom">
+                    <div class="col-6 col-md-2 col-lg-2 p-2 text-center">
+                        <img class="product-img-in-cart" src="@item.img"/>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 p-2"><b>@item.name</b></div>
+
+                    <div class="col-4 col-md-2 col-lg-2 p-2">
+                        <div class="input-group">
+                          <button type="button" class="btn btn-orange">-</button>
+                          <input readonly type="text" min="1" title="Количество" class="form-control text-center" value="@item.quantity"/>
+                          <button type="button" class="btn btn-orange">+</button>
+                        </div>
+
+                    </div>
+                    <div class="col-5 col-md-2 col-lg-3 p-2 text-center">
+                        <b>@item.ComputeTotalPrice() руб.</b>
+                    </div>
+                    <div class="col-3 col-md-2 col-lg-2 p-2 text-center"><a href="#">Удалить</a></div>
+                </div>
+            }
+            </div>
+        </div>
+            
+            
+
+        
+        
+    </main>
+</div>
